@@ -1,6 +1,7 @@
 package batalha;
 
 public class Jogo {
+<<<<<<< HEAD
 	
 	
 	
@@ -13,6 +14,10 @@ public class Jogo {
 	}
 	
 	
+=======
+
+
+>>>>>>> a0d82e802b5ff292c40abcec5c91ff9f06505038
     public static void main(String[] args) {
         Tabuleiro tab = new Tabuleiro();
         Usuario usuario = new Usuario();
@@ -20,6 +25,7 @@ public class Jogo {
         
         tab.startMatrix();
         tab.showMatrix();
+<<<<<<< HEAD
         usuario.posicionarNavios();
         
         
@@ -32,5 +38,9 @@ public class Jogo {
        // }
    
         
+=======
+        tab.addShipMatrix(1,3);
+        tab.showMatrix();
+>>>>>>> a0d82e802b5ff292c40abcec5c91ff9f06505038
     }
 }

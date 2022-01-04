@@ -8,6 +8,10 @@ public class Jogo {
 		
 	}
 	
+	public void jogarBombaNoUsuario() {
+		
+	}
+	
 	
     public static void main(String[] args) {
         Tabuleiro tab = new Tabuleiro();
@@ -22,8 +26,8 @@ public class Jogo {
         
        // public void jogar(){
        // 	while ((user.points || computer.points) < 10){
-       //		jogarBombaUser()
-       //       jogarBombaComputer()
+       //		jogarBombaNoComputador()
+       //       jogarBombaNoUsuario()
        // }
        // }
    

@@ -4,24 +4,13 @@ import java.util.Scanner;
 
 public class Usuario {
 	
-	private int points;
-	private Tabuleiro userTab;
+	public static int points;
+	public Tabuleiro userTab;
 	
-	public int getPoints() {
+	public static int getPoints() {
 		return points;
 	}
 
-	public Tabuleiro getUserTab() {
-		return userTab;
-	}
-
-	public void setPoints(int points) {
-		this.points = points;
-	}
-
-	public void setUserTab(Tabuleiro userTab) {
-		this.userTab = userTab;
-	}
 
 	
 	private int changeAlpha(String row){
@@ -40,18 +29,19 @@ public class Usuario {
 	
 	public void posicionarNavios() {
 		Scanner scan = new Scanner(System.in);
+		
 		System.out.println("Insira a linha e a coluna que deseja colocar seus navios");
 		for (int i = 1; i<11;i++) {
-			System.out.println("Adicione o " + i + "Navio");
-			System.out.println("Insira a linha");
+			System.out.println("Adicione o " + i + " Navio");
+			System.out.println("Insira a linha entre 1 e 10");
 			String row = scan.next();
 			int rowInt = changeAlpha(row);
 			System.out.println("Insira a linha");
 			int column = scan.nextInt();
 			// Funcao add to the matrix
-		}
 		
-	};
+		};
+	}
 	
 	public void pontuar (int points) {
 		this.points = points++;

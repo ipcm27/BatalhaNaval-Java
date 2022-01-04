@@ -7,7 +7,6 @@ public class Usuario {
 	private int points;
 	private Tabuleiro userTab;
 	
-
 	public int getPoints() {
 		return points;
 	}
@@ -23,7 +22,6 @@ public class Usuario {
 	public void setUserTab(Tabuleiro userTab) {
 		this.userTab = userTab;
 	}
-
 
 	
 	private int changeAlpha(String row){
@@ -43,7 +41,7 @@ public class Usuario {
 	public void posicionarNavios() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Insira a linha e a coluna que deseja colocar seus navios");
-		for (int i =0; i<9;i++) {
+		for (int i = 1; i<11;i++) {
 			System.out.println("Adicione o " + i + "Navio");
 			System.out.println("Insira a linha");
 			String row = scan.next();
@@ -52,5 +50,12 @@ public class Usuario {
 			int column = scan.nextInt();
 			// Funcao add to the matrix
 		}
+		
+	};
+	
+	public void pontuar (int points) {
+		this.points = points++;
 	}
+	
+	
 }

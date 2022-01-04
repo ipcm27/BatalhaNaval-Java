@@ -37,6 +37,11 @@ public class Usuario {
         else if(row.equalsIgnoreCase("J")){ return 10;}
         else { return 0;}
 	}
+
+	//FUNÇÃO VERIFICA SE USARIO DIGITOU VALOR ENTRE 1 E 10
+	public Boolean validPositionShip(int cord){
+		return cord > 0 && cord < 11;
+	}
 	
 	public void posicionarNavios() {
 		Scanner scan = new Scanner(System.in);
@@ -46,15 +51,15 @@ public class Usuario {
 			System.out.println("Insira a linha");
 			String row = scan.next();
 			int rowInt = changeAlpha(row);
-			System.out.println("Insira a linha");
+			System.out.println("Insira a Coluna");
 			int column = scan.nextInt();
 			// Funcao add to the matrix
 		}
 		
 	};
 	
-	public void pontuar (int points) {
-		this.points = points++;
+	public void pontuar () {
+		this.points++;
 	}
 	
 	

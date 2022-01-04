@@ -34,17 +34,23 @@ public class Usuario {
 	
 	public void posicionarNavios() {
 		Scanner scan = new Scanner(System.in);
+		userTab.startMatrix();
 		
 		System.out.println("Insira a linha e a coluna que deseja colocar seus navios");
 		for (int i = 1; i<11;i++) {
 			System.out.println("Adicione o " + i + " Navio");
-			System.out.println("Insira a linha entre 1 e 10");
+			
+			System.out.println("Insira a linha entre A e J");
 			String row = scan.next();
 			int rowInt = changeAlpha(row);
+			validPositionShip(rowInt);
+			
+			
 			System.out.println("Insira a Coluna");
 			int column = scan.nextInt();
-			// Funcao add to the matrix
-		
+			validPositionShip(column);
+			
+			userTab.addShipMatrix(rowInt, column);
 		};
 	}
 	

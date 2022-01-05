@@ -21,8 +21,8 @@ public class Jogo {
 
         
         igor.posicionarNavios();
-        bernado.generatorPositionShips(igor,tabBer);
-        tabBer.showMatrix();
+        bernado.generatorPositionShips(igor,bernado);
+        tabBer.showMatrixComputador();
 
 
         //System.out.println(validPositionShipComputer(1,10,tab));//testando função

@@ -26,13 +26,14 @@ public class Computador {
     }
 
     //FUNÇÃO GERA OS NAVIES INICIAIS PARA COMEÇA
-    public void generatorPositionShips(Usuario u,Tabuleiro t){
+    public void generatorPositionShips(Usuario u,Computador c){
+
         int numberShips = 0;
         int row = getRandomNumber();
         int col = getRandomNumber();
 
         while(validPositionShipComputer(row,col,u.userTab) && numberShips < 3){
-            t.addShipMatrixComputer(row,col);
+            c.tab.addShipMatrixComputer(row,col);
             numberShips++;
         }
     }

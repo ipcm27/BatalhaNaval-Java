@@ -42,6 +42,7 @@ public class Usuario {
 		return (cord > 0 && cord < 11);
 	}
 	
+
 	public int inserirLinha() {
 		Scanner scan = new Scanner(System.in);
 		boolean isValid = false;

@@ -5,11 +5,11 @@ import java.util.Random;
 
 public class Computador {
 
-    public Tabuleiro tab;
+    public Tabuleiro tabuleiroComputador;
     private int points = 0;
 
     public Computador(Tabuleiro tab) {
-        this.tab = tab;
+        this.tabuleiroComputador = tab;
         tab.startMatrix();
         //tab.showMatrix(); Por enquanto sem mostrar
     }
@@ -38,14 +38,13 @@ public class Computador {
              int col = getRandomNumber();
              
              if (!compararPosicaoComUsuarioEcomputador(row,col, usuario.tabuleiroUsuario)) {
-            	 computador.tab.addShipMatrixComputer(row,col);
+            	 tabuleiroComputador.addShipMatrixComputer(row,col);
             	 i++;
              }
-             
-
-             
+             tabuleiroComputador.showMatrixComputador();
         }
         
+// BERNARDO VÊ SE É UTIL E APAGA
         
 //        while(validatePositionComputer(row,col,usuario.userTab) && numberShips < 3){
 //            computador.tab.addShipMatrixComputer(row,col);

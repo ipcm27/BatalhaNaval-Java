@@ -19,8 +19,15 @@ public class Computador {
         return random.nextInt(11 - 1) + 1;
     }
 
-    private int getPointId(int row, int col) {
-        return row * 10 + col;
+    public void addShips(int navios) {
+        int naviosPosicionados = 0;
+        while (naviosPosicionados < 10) {
+            int row = getRandomNumber();
+            int col = getRandomNumber();
+            if (tab.addShipMatrix(row, col)) {
+                naviosPosicionados++;
+            }
+        }
     }
 
     public void shoot() {

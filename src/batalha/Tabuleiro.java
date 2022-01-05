@@ -3,7 +3,9 @@ package batalha;
 public class Tabuleiro {
     private final String[][] matrizTabuleiro = new String[12][12];
 
-
+    public String getStringMatrix(int row,int col){
+        return matrizTabuleiro[row][col];
+    }
     
 	private String alphabetical(int row){
         switch(row){

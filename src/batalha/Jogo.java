@@ -8,9 +8,12 @@ public class Jogo {
 	}
 	
 	public void jogarBombaNoUsuario() {
-		
+
 	}
-	
+
+    public Boolean validPositionShipComputer(int row,int col){
+        return true;
+    }
 
     public static void main(String[] args) {
         Tabuleiro tab = new Tabuleiro();
@@ -29,6 +32,5 @@ public class Jogo {
        //       jogarBombaNoUsuario()
        // }
        // }
-
     }
 }

@@ -35,45 +35,60 @@ public class Usuario {
 	}
 
 	//FUNÇÃO VERIFICA SE USARIO DIGITOU VALOR ENTRE 1 E 10
-	public Boolean validPositionShip(int cord){
+	public Boolean validatePosition(int cord){
 		return cord > 0 && cord < 11;
 	}
 	
-	public void posicionarNavios() {
+	public int inserirLinha() {
 		Scanner scan = new Scanner(System.in);
+		boolean isValid = false;
+		int rowInt = 0;
+		
+		while(isValid == false) {
+		System.out.println("Insira a linha entre A e J");
+		String row = scan.next();
+		rowInt = changeAlpha(row);
+		isValid = validatePosition(rowInt);
+		
+		}
+		return rowInt;
+	}
+	
+	public int inserirColuna() {
+		Scanner scan = new Scanner(System.in);
+		boolean isValid = false;
+		int column =0;
+		
+		
+		while(isValid == false) {
+		
+		System.out.println("Insira a Coluna");
+		column = scan.nextInt() + 1;
+		isValid = validatePosition(column);
+		}
+		
+		return column;
+	}
+		
+
+	
+	public void posicionarNavios() {
+		
 		userTab.startMatrix();
 		
 		System.out.println("Insira a linha e a coluna que deseja colocar seus navios");
 		for (int i = 1; i < 3;i++) {
+		
 			System.out.println("Adicione o " + i + " Navio");
-			
-			boolean valido = false;
-			String row;
-			
-			System.out.println("Insira a linha entre A e J");
-			row = scan.next();
-			int rowInt = changeAlpha(row);
+			int LINHA = inserirLinha();
+			int COLUNA = inserirColuna();
 			
 			
-			if (validPositionShip(rowInt) == false) {
-				while (valido == false) {
-				System.out.println("essa letra não é válida");	
-				System.out.println("Insira a linha entre A e J");
-				row = scan.next();
-				rowInt = changeAlpha(row);
-				valido = validPositionShip(rowInt);
-				}
-			};
-			
-			
-			System.out.println("Insira a Coluna");
-			int column = scan.nextInt() + 1;
-			validPositionShip(column);
-			
-			userTab.addShipMatrix(rowInt, column);
+			userTab.addShipMatrix(LINHA, COLUNA);
 		};
 		userTab.showMatrix();
 	}
+	
 	
 	public void pontuar () {
 		this.points++;

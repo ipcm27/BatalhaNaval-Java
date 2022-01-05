@@ -96,6 +96,7 @@ public class Usuario {
 			if(!compararPosicaoUsuarioNaoRepetida(LINHA,COLUNA,tabuleiroUsuario)){
 				tabuleiroUsuario.addShipMatrixUser(LINHA, COLUNA);
 				tabuleiroUsuario.showMatrix(); //ACHEI QUE FICA MELHOR MOSTRANDO CADA INSERÇÃO
+				i++;
 			}
 
 		};

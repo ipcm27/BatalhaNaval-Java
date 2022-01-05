@@ -14,12 +14,14 @@ public class Jogo {
 
     public static void main(String[] args) {
         Tabuleiro tab = new Tabuleiro();
-        Usuario usuario = new Usuario();
+        
+        Usuario igor = new Usuario(tab,0);
         
         
         tab.startMatrix();
         tab.showMatrix();
-        usuario.posicionarNavios();
+        
+        igor.posicionarNavios();
     
        // public void jogar(){
        // 	while ((user.points || computer.points) < 10){
@@ -27,10 +29,6 @@ public class Jogo {
        //       jogarBombaNoUsuario()
        // }
        // }
-   
-        
-        tab.addShipMatrix(1,3);
-        tab.showMatrix();
 
     }
 }

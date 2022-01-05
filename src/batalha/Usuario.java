@@ -87,7 +87,7 @@ public class Usuario {
 		tabuleiroUsuario.startMatrix();
 		
 		System.out.println("Insira a linha e a coluna que deseja colocar seus navios");
-		while(i < 11) {
+		while(i < 3) {
 		
 			System.out.println("Adicione o " + i + " Navio");
 			int LINHA = inserirLinha();
@@ -97,6 +97,8 @@ public class Usuario {
 				tabuleiroUsuario.addShipMatrixUser(LINHA, COLUNA);
 				tabuleiroUsuario.showMatrix(); //ACHEI QUE FICA MELHOR MOSTRANDO CADA INSERÇÃO
 				i++;
+			}else{
+				System.out.println("POSIÇÃO REPETIDA DIGITE NOVAMENTE");
 			}
 
 		};

@@ -98,5 +98,13 @@ public class Usuario {
 		this.points++;
 	}
 	
+	public void jogarBombaNoComputador() {
+		System.out.println("Insira a linha e a coluna para jogar a BOMBA");
+		int LINHA = inserirLinha();
+		int COLUNA = inserirColuna();
+		
+	}
+	
+	
 	
 }

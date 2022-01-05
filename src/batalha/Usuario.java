@@ -4,11 +4,18 @@ import java.util.Scanner;
 
 public class Usuario {
 	
+	
+
 	public static int points;
 	public Tabuleiro userTab;
 	
 	public static int getPoints() {
 		return points;
+	}
+	
+	public Usuario(Tabuleiro userTab, int points) {
+		this.points = points;
+		this.userTab = userTab;
 	}
 
 
@@ -37,7 +44,7 @@ public class Usuario {
 		userTab.startMatrix();
 		
 		System.out.println("Insira a linha e a coluna que deseja colocar seus navios");
-		for (int i = 1; i<11;i++) {
+		for (int i = 1; i < 3;i++) {
 			System.out.println("Adicione o " + i + " Navio");
 			
 			System.out.println("Insira a linha entre A e J");
@@ -52,6 +59,7 @@ public class Usuario {
 			
 			userTab.addShipMatrix(rowInt, column);
 		};
+		userTab.showMatrix();
 	}
 	
 	public void pontuar () {

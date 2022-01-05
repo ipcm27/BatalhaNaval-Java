@@ -16,7 +16,7 @@ public class Jogo {
         Tabuleiro tabIgor = new Tabuleiro();
         Tabuleiro tabBer = new Tabuleiro();
         
-        Usuario igor = new Usuario(tabIgor,0);
+        Usuario igor = new Usuario(tabIgor);
         Computador bernado = new Computador(tabBer);
 
         

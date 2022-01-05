@@ -13,8 +13,8 @@ public class Usuario {
 		return points;
 	}
 	
-	public Usuario(Tabuleiro userTab, int points) {
-		this.points = points;
+	public Usuario(Tabuleiro userTab) {
+		
 		this.userTab = userTab;
 		//estou inicializando a matriz dentro do construtor usuário
 		userTab.startMatrix();

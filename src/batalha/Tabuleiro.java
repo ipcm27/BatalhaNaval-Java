@@ -55,6 +55,22 @@ public class Tabuleiro {
             System.out.printf("---------------------------------------------%n");
         }
     }
+    
+    public void showMatrixComputador(){
+        System.out.printf("---------------------------------------------%n");
+        System.out.printf("                   COMPUTADOR                 %n");
+        System.out.printf("---------------------------------------------%n");
+        for(int i = 0; i < 11;i++){
+            for(int j = 0; j < 11;j++){
+                if(j == 10){
+                    System.out.printf(matrizTabuleiro[i][j]+"%n");
+                }else{
+                    System.out.print(matrizTabuleiro[i][j]);
+                }
+            }
+            System.out.printf("---------------------------------------------%n");
+        }
+    }
 
     //FUNÇÃO ADICIONAR NAVIO
     public void addShipMatrixUser(int row,int col){

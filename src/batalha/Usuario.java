@@ -7,7 +7,7 @@ public class Usuario {
 	
 
 	public static int points;
-	public Tabuleiro userTab;
+	public Tabuleiro tabuleiroUsuario;
 	
 	public static int getPoints() {
 		return points;
@@ -15,7 +15,7 @@ public class Usuario {
 	
 	public Usuario(Tabuleiro userTab) {
 		
-		this.userTab = userTab;
+		this.tabuleiroUsuario = userTab;
 		//estou inicializando a matriz dentro do construtor usuário
 		userTab.startMatrix();
 		userTab.showMatrix();
@@ -77,7 +77,7 @@ public class Usuario {
 	
 	public void posicionarNavios() {
 		
-		userTab.startMatrix();
+		tabuleiroUsuario.startMatrix();
 		
 		System.out.println("Insira a linha e a coluna que deseja colocar seus navios");
 		for (int i = 1; i < 3;i++) {
@@ -87,8 +87,8 @@ public class Usuario {
 			int COLUNA = inserirColuna();
 			
 			
-			userTab.addShipMatrixUser(LINHA, COLUNA);
-			userTab.showMatrix(); //ACHEI QUE FICA MELHOR MOSTRANDO CADA INSERÇÃO
+			tabuleiroUsuario.addShipMatrixUser(LINHA, COLUNA);
+			tabuleiroUsuario.showMatrix(); //ACHEI QUE FICA MELHOR MOSTRANDO CADA INSERÇÃO
 		};
 
 	}

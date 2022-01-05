@@ -20,22 +20,37 @@ public class Computador {
     }
 
     //FUNÇÃO RESPONSAVEL POR VALIDA POSIÇÕES DO COMPUTADOR
-    public Boolean validPositionShipComputer(int row,int col,Tabuleiro tab){
-        String valid = tab.getStringMatrix(row,col);
-        return (valid.equalsIgnoreCase("| n ") || valid.equalsIgnoreCase("| n |"));
+    public Boolean compararPosicaoComUsuarioEcomputador(int row,int col,Tabuleiro tabuleiro){
+        String rowColInseridos  = tabuleiro.getStringMatrix(row,col);
+        return (rowColInseridos.equalsIgnoreCase("| n ") || rowColInseridos.equalsIgnoreCase("| n |"));
     }
+    
+  
+    
 
     //FUNÇÃO GERA OS NAVIES INICIAIS PARA COMEÇA
-    public void generatorPositionShips(Usuario u,Computador c){
+    public void posicionarNaviosComputador(Usuario usuario,Computador computador){
+    	
+    	int i = 1;
 
-        int numberShips = 0;
-        int row = getRandomNumber();
-        int col = getRandomNumber();
+        while(i < 3){
+        	 int row = getRandomNumber();
+             int col = getRandomNumber();
+             
+             if (!compararPosicaoComUsuarioEcomputador(row,col, usuario.tabuleiroUsuario)) {
+            	 computador.tab.addShipMatrixComputer(row,col);
+            	 i++;
+             }
+             
 
-        while(validPositionShipComputer(row,col,u.userTab) && numberShips < 3){
-            c.tab.addShipMatrixComputer(row,col);
-            numberShips++;
+             
         }
+        
+        
+//        while(validatePositionComputer(row,col,usuario.userTab) && numberShips < 3){
+//            computador.tab.addShipMatrixComputer(row,col);
+//            numberShips++;
+//        }
     }
 
 //    public void addShips(int navios) {

@@ -47,10 +47,23 @@ public class Usuario {
 		for (int i = 1; i < 3;i++) {
 			System.out.println("Adicione o " + i + " Navio");
 			
+			boolean valido = false;
+			String row;
+			
 			System.out.println("Insira a linha entre A e J");
-			String row = scan.next();
+			row = scan.next();
 			int rowInt = changeAlpha(row);
-			validPositionShip(rowInt);
+			
+			
+			if (validPositionShip(rowInt) == false) {
+				while (valido == false) {
+				System.out.println("essa letra não é válida");	
+				System.out.println("Insira a linha entre A e J");
+				row = scan.next();
+				rowInt = changeAlpha(row);
+				valido = validPositionShip(rowInt);
+				}
+			};
 			
 			
 			System.out.println("Insira a Coluna");

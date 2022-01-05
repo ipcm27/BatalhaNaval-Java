@@ -37,6 +37,12 @@ public class Usuario {
         else { return 0;}
 	}
 
+	//ESSA FUNÇÃO EVITA QUE USUARIO REPITA MESMO LANCE
+	public Boolean compararPosicaoUsuarioNaoRepetida(int row,int col,Tabuleiro tabuleiro){
+		String rowColInseridos  = tabuleiro.getStringMatrix(row,col);
+		return (rowColInseridos.equals("| n ") || rowColInseridos.equals("| n |"));
+	}
+
 	//FUNÇÃO VERIFICA SE USARIO DIGITOU VALOR ENTRE 1 E 10
 	public Boolean validatePosition(int cord){
 		return (cord > 0 && cord < 11);
@@ -77,19 +83,21 @@ public class Usuario {
 
 	
 	public void posicionarNavios() {
-		
+		int i = 1;
 		tabuleiroUsuario.startMatrix();
 		
 		System.out.println("Insira a linha e a coluna que deseja colocar seus navios");
-		for (int i = 1; i < 3;i++) {
+		while(i < 11) {
 		
 			System.out.println("Adicione o " + i + " Navio");
 			int LINHA = inserirLinha();
 			int COLUNA = inserirColuna();
 			
-			
-			tabuleiroUsuario.addShipMatrixUser(LINHA, COLUNA);
-			tabuleiroUsuario.showMatrix(); //ACHEI QUE FICA MELHOR MOSTRANDO CADA INSERÇÃO
+			if(!compararPosicaoUsuarioNaoRepetida(LINHA,COLUNA,tabuleiroUsuario)){
+				tabuleiroUsuario.addShipMatrixUser(LINHA, COLUNA);
+				tabuleiroUsuario.showMatrix(); //ACHEI QUE FICA MELHOR MOSTRANDO CADA INSERÇÃO
+			}
+
 		};
 
 	}

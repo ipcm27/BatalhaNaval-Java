@@ -67,7 +67,7 @@ public class Usuario {
 			
 			
 			System.out.println("Insira a Coluna");
-			int column = scan.nextInt();
+			int column = scan.nextInt() + 1;
 			validPositionShip(column);
 			
 			userTab.addShipMatrix(rowInt, column);

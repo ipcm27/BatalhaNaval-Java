@@ -16,10 +16,13 @@ public class Usuario {
 	public Usuario(Tabuleiro userTab, int points) {
 		this.points = points;
 		this.userTab = userTab;
+		//estou inicializando a matriz dentro do construtor usuário
+		userTab.startMatrix();
+		userTab.showMatrix();
 	}
 
 
-	
+	//FUNÇÃO MUDA LETRA POR NÚMERO
 	private int changeAlpha(String row){
         if(row.equalsIgnoreCase("A")){ return 1;}
         else if(row.equalsIgnoreCase("B")){ return 2;}
@@ -36,7 +39,7 @@ public class Usuario {
 
 	//FUNÇÃO VERIFICA SE USARIO DIGITOU VALOR ENTRE 1 E 10
 	public Boolean validatePosition(int cord){
-		return cord > 0 && cord < 11;
+		return (cord > 0 && cord < 11);
 	}
 	
 	public int inserirLinha() {
@@ -84,9 +87,10 @@ public class Usuario {
 			int COLUNA = inserirColuna();
 			
 			
-			userTab.addShipMatrix(LINHA, COLUNA);
+			userTab.addShipMatrixUser(LINHA, COLUNA);
+			userTab.showMatrix(); //ACHEI QUE FICA MELHOR MOSTRANDO CADA INSERÇÃO
 		};
-		userTab.showMatrix();
+
 	}
 	
 	

@@ -57,8 +57,12 @@ public class Tabuleiro {
     }
 
     //FUNÇÃO ADICIONAR NAVIO
-    public void addShipMatrix(int row,int col){
-        matrizTabuleiro[row][col] = "| n ";
+    public void addShipMatrixUser(int row,int col){
+        matrizTabuleiro[row][col] = (col == 10)? "| n |":"| n ";
+    }
+
+    public void addShipMatrixComputer(int row,int col){
+        matrizTabuleiro[row][col] = (col == 10)? "| N |":"| N ";
     }
 
 }

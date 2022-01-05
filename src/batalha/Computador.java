@@ -41,8 +41,9 @@ public class Computador {
             	 tabuleiroComputador.addShipMatrixComputer(row,col);
             	 i++;
              }
-             tabuleiroComputador.showMatrixComputador();
+            
         }
+        tabuleiroComputador.showMatrixComputador();
         
 // BERNARDO VÊ SE É UTIL E APAGA
         

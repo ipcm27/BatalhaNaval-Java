@@ -23,9 +23,6 @@ public class Jogo {
         igor.posicionarNavios();
         bernado.posicionarNaviosComputador(igor,bernado);
       
-
-        //System.out.println(validPositionShipComputer(1,10,tab));//testando função
-
     
        // public void jogar(){
        // 	while ((user.points || computer.points) < 10){

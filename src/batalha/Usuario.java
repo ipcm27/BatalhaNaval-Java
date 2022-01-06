@@ -23,18 +23,10 @@ public class Usuario {
 
 
 	//FUNÇÃO MUDA LETRA POR NÚMERO
-	private int changeAlpha(String row){
-        if(row.equalsIgnoreCase("A")){ return 1;}
-        else if(row.equalsIgnoreCase("B")){ return 2;}
-        else if(row.equalsIgnoreCase("C")){ return 3;}
-        else if(row.equalsIgnoreCase("D")){ return 4;}
-        else if(row.equalsIgnoreCase("E")){ return 5;}
-        else if(row.equalsIgnoreCase("F")){ return 6;}
-        else if(row.equalsIgnoreCase("G")){ return 7;}
-        else if(row.equalsIgnoreCase("H")){ return 8;}
-        else if(row.equalsIgnoreCase("I")){ return 9;}
-        else if(row.equalsIgnoreCase("J")){ return 10;}
-        else { return 0;}
+	private int changeAlpha(String row) {
+		char rowChar = row.toUpperCase().charAt(0); // Pega o primeiro caractere
+		int ascii = rowChar; // Converte para código ASCII
+		return ascii - 64;
 	}
 
 	//ESSA FUNÇÃO EVITA QUE USUARIO REPITA MESMO LANCE

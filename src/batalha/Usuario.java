@@ -72,7 +72,23 @@ public class Usuario {
 		return column;
 	}
 		
+	private int[] parseCoordinates(String input) {
+		// Converte as coordenadas inseridas para um array de inteiros
 
+		char row = input.toUpperCase().charAt(0);
+		char col = input.charAt(1);
+
+		int rowNum = Utils.letterToRow(row) + 1;
+		int colNum = Integer.parseInt(Character.toString(col)) + 1;
+
+		return new int[] {rowNum, colNum};
+	}
+
+	private String readCoordinates() {
+		System.out.println("Insira a posição (entre A0 e J9):");
+		Scanner scan = new Scanner(System.in);
+		return scan.next();
+	}
 	
 	public void posicionarNavios() {
 		int i = 1;
@@ -82,8 +98,10 @@ public class Usuario {
 		while(i < 3) {
 		
 			System.out.println("Adicione o " + i + " Navio");
-			int LINHA = inserirLinha();
-			int COLUNA = inserirColuna();
+			String input = readCoordinates();
+			int[] coordenadas = parseCoordinates(input);
+			int LINHA = coordenadas[0];
+			int COLUNA = coordenadas[1];
 			
 			if(!compararPosicaoUsuarioNaoRepetida(LINHA,COLUNA,tabuleiroUsuario)){
 				tabuleiroUsuario.addShipMatrixUser(LINHA, COLUNA);

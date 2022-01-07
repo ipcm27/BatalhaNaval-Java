@@ -31,12 +31,6 @@ public class Computador {
         return (rowColInseridos.equals("| N ") || rowColInseridos.equalsIgnoreCase("| N |"));
     }
 
-    //FUNÇÃO VALIDA ACERTO
-    private Boolean shootRight(int row,int col,Tabuleiro tabUser){
-        String rowColInseridos  = tabUser.getStringMatrix(row,col);
-        return (rowColInseridos.equals("| n ") || rowColInseridos.equalsIgnoreCase("| n |"));
-    }
-
     //FUNÇÃO GERA OS NAVIES INICIAIS PARA COMEÇA
     public void posicionarNaviosComputador(Usuario usuario,Computador computador){
     	
@@ -66,16 +60,17 @@ public class Computador {
             isValidPoint = checkValidPoint(row, col) && tabUser.notRepeatAttack(row,col);
         }
 
-        if(shootRight(row,col,tabUser)){
-            tabUser.addShoot(row,col,"X");
-            tabuleiroComputador.addShoot(row,col,"X");
+        boolean acertou = tabUser.shoot(row, col);
+
+        // O acerto OU tiro na água também é marcado no tabuleiro do usuário
+        if (acertou) {
+            tabUser.addShoot(row, col,"X");
             pontuarComputer();
-            return true;
-        }else{
-            tabUser.addShootWater(row,col);
-            tabuleiroComputador.addShootWater(row,col);//As duas tabelas marcam tiro na água
-            return false;
+        } else {
+            tabUser.addShootWater(row, col);
         }
+
+        return acertou;
     }
 
     //FUNÇÃO PARA FAZER VALIDAÇÃO DO TIRO COMPUTADOR

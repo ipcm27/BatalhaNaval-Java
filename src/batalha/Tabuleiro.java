@@ -25,12 +25,33 @@ public class Tabuleiro {
 
     //FUNÇÃO ADICIONAR TIRO
     public void addShoot(int row,int col,String shoot){
-        matrizTabuleiro[row][col] = (col == 10)? String.format("| X |",shoot):String.format("| X ",shoot);
+        matrizTabuleiro[row][col] = (col == 10)? String.format("| %s |",shoot):String.format("| %s ",shoot);
     }
 
     //FUNÇÃO ADICIONA TIRO NA ÁGUA
     public void addShootWater(int row,int col){
         matrizTabuleiro[row][col] = (col == 10)? "| - |":"| - ";
+    }
+
+    //FUNÇÃO VALIDA ACERTO
+    public Boolean shoot(int row, int col) {
+        String rowColInseridos = this.getStringMatrix(row, col);
+
+        // Navio do usuário
+        if (rowColInseridos.equals("| n ") || rowColInseridos.equals("| n |")) {
+           this.addShoot(row, col, "X");
+           return true;
+        }
+        // Navio do computador
+        else if (rowColInseridos.equals("| N ") || rowColInseridos.equals("| N |")) {
+            this.addShoot(row, col, "*");
+            return true;
+        }
+        // Tiro na água
+        else {
+            this.addShootWater(row, col);
+            return false;
+        }
     }
 
     //FUNÇÃO EVITA TIROS REPETIDOS NA ÁGUA RETORNANDO FALSE

@@ -164,12 +164,12 @@ public class Usuario {
 			System.out.println("Posição inválida!");
 			return false;
 		}
-		int linha = coordenadas[0];
-		int coluna = coordenadas[1];
+		int row = coordenadas[0];
+		int col = coordenadas[1];
 
 		// Verificar se usuário já atirou ali
-		boolean jaAtirouAli = !tabComputador.notRepeatAttack(linha, coluna);
-		boolean jaAcertouNavio = !tabComputador.notRepeatShootRight(linha, coluna);
+		boolean jaAtirouAli = !tabComputador.notRepeatAttack(row, col);
+		boolean jaAcertouNavio = !tabComputador.notRepeatShootRight(row, col);
 
 		// Retornar se o tiro foi válido ou não
 		boolean tiroValido = !(jaAtirouAli || jaAcertouNavio);
@@ -177,9 +177,17 @@ public class Usuario {
 			System.out.printf("Você já atirou nessa posição!");
 			return false;
 		} else {
-			// Aqui, verificar se o tiro acertou um navio, pontuar e retornar TRUE;
-			// caso contrário, alertar o usuário que errou e retornar FALSE
-			return true;
+			// Verificar se o tiro acertou um navio
+			boolean acertou = tabComputador.shoot(row, col);
+
+			// O acerto OU tiro na água também é marcado no tabuleiro do computador
+			if (acertou) {
+				tabComputador.addShoot(row, col,"X");
+				pontuarUser();
+			} else {
+				tabComputador.addShootWater(row, col);
+			}
+			return acertou;
 		}
 	}
 	

@@ -1,5 +1,6 @@
 package batalha;
 
+
 import java.util.Scanner;
 
 public class Usuario {

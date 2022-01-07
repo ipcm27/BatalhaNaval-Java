@@ -41,6 +41,9 @@ public class Usuario {
 	}
 	
 
+	// @Igor: fiz uma alteração no input para ler linha e coluna de uma vez só,
+	// então não estamos mais usando esses métodos! Pode apagar se quiser :)
+	/*
 	public int inserirLinha() {
 		Scanner scan = new Scanner(System.in);
 		boolean isValid = false;
@@ -70,7 +73,7 @@ public class Usuario {
 		}
 		
 		return column;
-	}
+	} */
 		
 	private int[] parseCoordinates(String input) {
 		// Converte as coordenadas inseridas para um array de inteiros
@@ -149,9 +152,18 @@ public class Usuario {
 	
 	public void jogarBombaNoComputador() {
 		System.out.println("Insira a linha e a coluna para jogar a BOMBA");
-		int LINHA = inserirLinha();
-		int COLUNA = inserirColuna();
-		
+
+		String input = readCoordinates();
+		int[] coordenadas;
+		try {
+			coordenadas = parseCoordinates(input);
+		} catch (Exception e) {
+			System.out.println("Posição inválida!");
+			return;
+		}
+		int LINHA = coordenadas[0];
+		int COLUNA = coordenadas[1];
+
 	}
 	
 	

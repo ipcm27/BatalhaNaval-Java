@@ -24,7 +24,24 @@ public class Computador {
         String rowColInseridos  = tabuleiro.getStringMatrix(row,col);
         return (rowColInseridos.equalsIgnoreCase("| n ") || rowColInseridos.equalsIgnoreCase("| n |"));
     }
-    
+
+    //FUNÇÃO VERIFICA SE COMPUTADOR ATIROU NELE MESMO
+    private Boolean shootYourselfComputer(int row,int col){
+        String rowColInseridos  = tabuleiroComputador.getStringMatrix(row,col);
+        return (rowColInseridos.equals("| N ") || rowColInseridos.equalsIgnoreCase("| N |"));
+    }
+
+    //FUNÇÃO VALIDA ACERTO
+    private Boolean shootRight(int row,int col,Tabuleiro tabUser){
+        String rowColInseridos  = tabUser.getStringMatrix(row,col);
+        return (rowColInseridos.equals("| n ") || rowColInseridos.equalsIgnoreCase("| n |"));
+    }
+
+    //FUNÇÃO PARA NÃO REPETIR TIRO CERTO
+    private Boolean notRepeatShootRight(int row,int col){
+        String rowColInseridos  = tabuleiroComputador.getStringMatrix(row,col);
+        return (rowColInseridos.equals("| X ") || rowColInseridos.equalsIgnoreCase("| X |"));
+    }
 
     //FUNÇÃO GERA OS NAVIES INICIAIS PARA COMEÇA
     public void posicionarNaviosComputador(Usuario usuario,Computador computador){
@@ -44,33 +61,39 @@ public class Computador {
         tabuleiroComputador.showMatrixComputador();
     }
 
-//    public void addShips(int navios) {
-//        int naviosPosicionados = 0;
-//        while (naviosPosicionados < 10) {
-//            int row = getRandomNumber();
-//            int col = getRandomNumber();
-//            if (tab.addShipMatrix(row, col)) {
-//                naviosPosicionados++;
-//            }
-//        }
-//    }
-
-    public void shoot() {
-        // Tentar atirar em coordenadas aleatórias até que o tiro seja válido
+    // Tentar atirar em coordenadas aleatórias até que o tiro seja válido
+    public Boolean shootComputer(Tabuleiro tabUser) {
         boolean isValidPoint = false;
+        int row = 0,col = 0;
+
         while (!isValidPoint) {
-            int row = getRandomNumber();
-            int col = getRandomNumber();
-            isValidPoint = checkValidPoint(row, col);
+            row = getRandomNumber();
+            col = getRandomNumber();
+            isValidPoint = checkValidPoint(row, col) && tabUser.notRepeatAttack(row,col);
+        }
+
+        if(shootRight(row,col,tabUser)){
+            tabUser.addShoot(row,col,"X");
+            pontuarComputer();
+            return true;
+        }else{
+            tabUser.addShootWater(row,col);
+            return false;
         }
     }
 
-    public boolean checkValidPoint(int row, int col) {
-        return true; // tab._____(row, col);
-        //usar método do tabuleiro
+    //FUNÇÃO PARA FAZER VALIDAÇÃO DO TIRO COMPUTADOR
+    private boolean checkValidPoint(int row, int col) {
+        if(shootYourselfComputer(row,col)){
+            return false;
+        }else if(notRepeatShootRight(row,col)){
+            return false;
+        }else{
+            return true;
+        }
     }
 
-    public void score() {
+    private void pontuarComputer() {
         this.points++;
     }
 

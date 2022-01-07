@@ -23,6 +23,16 @@ public class Tabuleiro {
         }
     }
 
+    //FUNÇÃO ADICIONAR TIRO
+    public void addShoot(int row,int col,String shoot){
+        matrizTabuleiro[row][col] = (col == 10)? String.format("| X |",shoot):String.format("| X ",shoot);
+    }
+
+    //FUNÇÃO ADICIONA TIRO NA ÁGUA
+    public void addShootWater(int row,int col){
+        matrizTabuleiro[row][col] = (col == 10)? "| - |":"| - ";
+    }
+
     //FUNÇÃO EVITA TIROS REPETIDOS NA ÁGUA RETORNANDO FALSE
     public Boolean notRepeatAttack(int row, int col){
         String rowColInseridos = this.getStringMatrix(row,col);
@@ -64,7 +74,7 @@ public class Tabuleiro {
     
     public void showMatrixComputador(){
         System.out.printf("---------------------------------------------%n");
-        System.out.printf("                   COMPUTADOR                 %n");
+        System.out.printf("                  COMPUTADOR                 %n");
         System.out.printf("---------------------------------------------%n");
         for(int i = 0; i < 11;i++){
             for(int j = 0; j < 11;j++){

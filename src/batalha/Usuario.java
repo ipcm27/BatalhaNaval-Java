@@ -147,7 +147,7 @@ public class Usuario {
 	}
 	
 	
-	public void pontuar () {
+	private void pontuarUser () {
 		this.points++;
 	}
 	

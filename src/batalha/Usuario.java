@@ -75,12 +75,32 @@ public class Usuario {
 	private int[] parseCoordinates(String input) {
 		// Converte as coordenadas inseridas para um array de inteiros
 
+		// Verificar se o tamanho da string é 2
+		if (input.length() != 2) {
+			throw new IllegalArgumentException();
+		}
+
+		// Converter para caracteres
 		char row = input.toUpperCase().charAt(0);
 		char col = input.charAt(1);
 
+		// Verificar se são uma letra e um número
+		boolean isRowValid = Character.isLetter(row);
+		boolean isColValid = Character.isDigit(col);
+		if (!(isRowValid && isColValid)) {
+			throw new IllegalArgumentException();
+		}
+
+		// Converter para número
 		int rowNum = Utils.letterToRow(row) + 1;
 		int colNum = Integer.parseInt(Character.toString(col)) + 1;
 
+		// Verificar se está entre 0 e 11
+		if (!(validatePosition(rowNum) && validatePosition(rowNum))) {
+			throw new IllegalArgumentException();
+		}
+
+		// Retornar como array
 		return new int[] {rowNum, colNum};
 	}
 
@@ -99,7 +119,14 @@ public class Usuario {
 		
 			System.out.println("Adicione o " + i + " Navio");
 			String input = readCoordinates();
-			int[] coordenadas = parseCoordinates(input);
+
+			int[] coordenadas;
+			try {
+				coordenadas = parseCoordinates(input);
+			} catch (Exception e) {
+				System.out.println("Posição inválida!");
+				continue;
+			}
 			int LINHA = coordenadas[0];
 			int COLUNA = coordenadas[1];
 			

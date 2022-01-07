@@ -151,9 +151,10 @@ public class Usuario {
 		this.points++;
 	}
 	
-	public void jogarBombaNoComputador() {
+	public boolean atacarComputador(Tabuleiro tabComputador) {
 		System.out.println("Insira a linha e a coluna para jogar a BOMBA");
 
+		// Receber linha e coluna a ser atacada
 		String input = readCoordinates();
 		int[] coordenadas;
 		try {
@@ -162,9 +163,23 @@ public class Usuario {
 			System.out.println("Posição inválida!");
 			return;
 		}
-		int LINHA = coordenadas[0];
-		int COLUNA = coordenadas[1];
+		int linha = coordenadas[0];
+		int coluna = coordenadas[1];
 
+		// Verificar se usuário já atirou ali
+		boolean jaAtirouAli = !tabComputador.notRepeatAttack(linha, coluna);
+		boolean jaAcertouNavio = true; // substituir!
+
+		// Retornar se o tiro foi válido ou não
+		boolean tiroValido = !(jaAtirouAli || jaAcertouNavio);
+		if (!(tiroValido)) {
+			System.out.printf("Você já atirou nessa posição!");
+			return false;
+		} else {
+			// Aqui, verificar se o tiro acertou um navio, pontuar e retornar TRUE;
+			// caso contrário, alertar o usuário que errou e retornar FALSE
+			return true;
+		}
 	}
 	
 	

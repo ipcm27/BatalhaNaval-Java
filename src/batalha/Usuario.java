@@ -35,6 +35,7 @@ public class Usuario {
 		return (rowColInseridos.equals("| n ") || rowColInseridos.equals("| n |"));
 	}
 
+
 	//FUNÇÃO VERIFICA SE USARIO DIGITOU VALOR ENTRE 1 E 10
 	public Boolean validatePosition(int cord){
 		return (cord > 0 && cord < 11);
@@ -119,7 +120,7 @@ public class Usuario {
 		
 		System.out.println("Insira a linha e a coluna que deseja colocar seus navios");
 		while(i < 3) {
-		
+
 			System.out.println("Adicione o " + i + " Navio");
 			String input = readCoordinates();
 

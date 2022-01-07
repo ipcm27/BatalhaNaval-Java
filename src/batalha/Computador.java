@@ -20,12 +20,10 @@ public class Computador {
     }
 
     //FUNÇÃO RESPONSAVEL POR VALIDA POSIÇÕES DO COMPUTADOR
-    public Boolean compararPosicaoComUsuarioEcomputador(int row,int col,Tabuleiro tabuleiro){
+    private Boolean compararPosicaoComUsuarioEcomputador(int row,int col,Tabuleiro tabuleiro){
         String rowColInseridos  = tabuleiro.getStringMatrix(row,col);
         return (rowColInseridos.equalsIgnoreCase("| n ") || rowColInseridos.equalsIgnoreCase("| n |"));
     }
-    
-  
     
 
     //FUNÇÃO GERA OS NAVIES INICIAIS PARA COMEÇA
@@ -44,13 +42,6 @@ public class Computador {
             
         }
         tabuleiroComputador.showMatrixComputador();
-        
-// BERNARDO VÊ SE É UTIL E APAGA
-        
-//        while(validatePositionComputer(row,col,usuario.userTab) && numberShips < 3){
-//            computador.tab.addShipMatrixComputer(row,col);
-//            numberShips++;
-//        }
     }
 
 //    public void addShips(int navios) {

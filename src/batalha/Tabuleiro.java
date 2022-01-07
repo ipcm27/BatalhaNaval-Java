@@ -23,6 +23,12 @@ public class Tabuleiro {
         }
     }
 
+    //FUNÇÃO EVITA TIROS REPETIDOS NA ÁGUA RETORNANDO FALSE
+    public Boolean notRepeatAttack(int row,int col,Tabuleiro tabuleiro){
+        String rowColInseridos  = tabuleiro.getStringMatrix(row,col);
+        return !(rowColInseridos.equals("| - ") || rowColInseridos.equals("| - |"));
+    }
+
     //FUNÇÃO PARA INICIAR MATRIZ
     public void startMatrix(){
         for(int i = 0; i < 11; i++){

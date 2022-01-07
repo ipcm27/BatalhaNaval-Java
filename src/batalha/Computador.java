@@ -81,7 +81,7 @@ public class Computador {
     private boolean checkValidPoint(int row, int col) {
         if(shootYourselfComputer(row,col)){
             return false;
-        }else if(notRepeatShootRight(row,col)){
+        }else if(this.tabuleiroComputador.notRepeatShootRight(row,col)){
             return false;
         }else{
             return true;

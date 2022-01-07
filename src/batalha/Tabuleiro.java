@@ -40,7 +40,7 @@ public class Tabuleiro {
     }
 
     //FUNÇÃO PARA NÃO REPETIR TIRO CERTO
-    private Boolean notRepeatShootRight(int row,int col){
+    public Boolean notRepeatShootRight(int row,int col){
         String rowColInseridos  = this.getStringMatrix(row,col);
         return (rowColInseridos.equalsIgnoreCase("| X ") || rowColInseridos.equalsIgnoreCase("| X |"));
     }

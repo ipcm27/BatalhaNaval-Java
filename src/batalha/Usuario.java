@@ -168,7 +168,7 @@ public class Usuario {
 
 		// Verificar se usuário já atirou ali
 		boolean jaAtirouAli = !tabComputador.notRepeatAttack(linha, coluna);
-		boolean jaAcertouNavio = true; // substituir!
+		boolean jaAcertouNavio = !tabComputador.notRepeatShootRight(linha, coluna);
 
 		// Retornar se o tiro foi válido ou não
 		boolean tiroValido = !(jaAtirouAli || jaAcertouNavio);

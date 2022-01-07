@@ -24,8 +24,8 @@ public class Tabuleiro {
     }
 
     //FUNÇÃO EVITA TIROS REPETIDOS NA ÁGUA RETORNANDO FALSE
-    public Boolean notRepeatAttack(int row,int col,Tabuleiro tabuleiro){
-        String rowColInseridos  = tabuleiro.getStringMatrix(row,col);
+    public Boolean notRepeatAttack(int row, int col){
+        String rowColInseridos = this.getStringMatrix(row,col);
         return !(rowColInseridos.equals("| - ") || rowColInseridos.equals("| - |"));
     }
 

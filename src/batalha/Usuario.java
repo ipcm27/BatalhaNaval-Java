@@ -161,7 +161,7 @@ public class Usuario {
 			coordenadas = parseCoordinates(input);
 		} catch (Exception e) {
 			System.out.println("Posição inválida!");
-			return;
+			return false;
 		}
 		int linha = coordenadas[0];
 		int coluna = coordenadas[1];

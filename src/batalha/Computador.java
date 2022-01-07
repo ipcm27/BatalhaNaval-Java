@@ -37,12 +37,6 @@ public class Computador {
         return (rowColInseridos.equals("| n ") || rowColInseridos.equalsIgnoreCase("| n |"));
     }
 
-    //FUNÇÃO PARA NÃO REPETIR TIRO CERTO
-    private Boolean notRepeatShootRight(int row,int col){
-        String rowColInseridos  = tabuleiroComputador.getStringMatrix(row,col);
-        return (rowColInseridos.equals("| X ") || rowColInseridos.equalsIgnoreCase("| X |"));
-    }
-
     //FUNÇÃO GERA OS NAVIES INICIAIS PARA COMEÇA
     public void posicionarNaviosComputador(Usuario usuario,Computador computador){
     	
@@ -74,6 +68,7 @@ public class Computador {
 
         if(shootRight(row,col,tabUser)){
             tabUser.addShoot(row,col,"X");
+            tabuleiroComputador.addShoot(row,col,"X");
             pontuarComputer();
             return true;
         }else{
@@ -87,7 +82,7 @@ public class Computador {
     private boolean checkValidPoint(int row, int col) {
         if(shootYourselfComputer(row,col)){
             return false;
-        }else if(notRepeatShootRight(row,col)){
+        }else if(this.tabuleiroComputador.notRepeatShootRight(row,col)){
             return false;
         }else{
             return true;

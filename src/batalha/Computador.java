@@ -37,12 +37,6 @@ public class Computador {
         return (rowColInseridos.equals("| n ") || rowColInseridos.equalsIgnoreCase("| n |"));
     }
 
-    //FUNÇÃO PARA NÃO REPETIR TIRO CERTO
-    private Boolean notRepeatShootRight(int row,int col){
-        String rowColInseridos  = tabuleiroComputador.getStringMatrix(row,col);
-        return (rowColInseridos.equals("| X ") || rowColInseridos.equalsIgnoreCase("| X |"));
-    }
-
     //FUNÇÃO GERA OS NAVIES INICIAIS PARA COMEÇA
     public void posicionarNaviosComputador(Usuario usuario,Computador computador){
     	

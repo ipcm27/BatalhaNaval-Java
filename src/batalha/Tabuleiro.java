@@ -39,6 +39,12 @@ public class Tabuleiro {
         return !(rowColInseridos.equals("| - ") || rowColInseridos.equals("| - |"));
     }
 
+    //FUNÇÃO PARA NÃO REPETIR TIRO CERTO
+    private Boolean notRepeatShootRight(int row,int col){
+        String rowColInseridos  = this.getStringMatrix(row,col);
+        return (rowColInseridos.equalsIgnoreCase("| X ") || rowColInseridos.equalsIgnoreCase("| X |"));
+    }
+
     //FUNÇÃO PARA INICIAR MATRIZ
     public void startMatrix(){
         for(int i = 0; i < 11; i++){

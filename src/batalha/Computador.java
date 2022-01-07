@@ -68,6 +68,7 @@ public class Computador {
 
         if(shootRight(row,col,tabUser)){
             tabUser.addShoot(row,col,"X");
+            tabuleiroComputador.addShoot(row,col,"X");
             pontuarComputer();
             return true;
         }else{

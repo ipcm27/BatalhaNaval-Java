@@ -78,6 +78,7 @@ public class Computador {
             return true;
         }else{
             tabUser.addShootWater(row,col);
+            tabuleiroComputador.addShootWater(row,col);//As duas tabelas marcam tiro na água
             return false;
         }
     }

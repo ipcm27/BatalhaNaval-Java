@@ -22,7 +22,9 @@ public class Jogo {
         
         igor.posicionarNavios();
         bernado.posicionarNaviosComputador(igor,bernado);
-      
+        bernado.shootComputer(tabIgor);
+        tabIgor.showMatrix();
+        tabBer.showMatrixComputador();
     
        // public void jogar(){
        // 	while ((user.points || computer.points) < 10){

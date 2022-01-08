@@ -195,6 +195,21 @@ public class Usuario {
 		}
 	}
 	
-	
-	
+	public void parabensVoceGanhou() {
+		System.out.println("     ___");
+		System.out.println("    \\_/");
+		System.out.println("      |._");
+		System.out.println("      |'.\"-._.-\"\"--.-\"-.__.-'/");
+		System.out.println("      |  \\       .-.        (");
+		System.out.println("      |   |     (@.@)        )");
+		System.out.println("      |   |   '=.|m|.='     /");
+		System.out.println(" BIK  |  /    .='`\"``=.    /");
+		System.out.println("      |.'                 (");
+		System.out.println("      |.-\"-.__.-\"\"-.__.-\"-.)");
+		System.out.println("      |");
+		System.out.println("      |");
+		System.out.println("      | ");
+		System.out.println("        ");
+		System.out.println("-=[ Parabéns, você é um pirata de verdade ]=-   ");
+	}	
 }

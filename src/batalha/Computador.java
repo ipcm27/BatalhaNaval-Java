@@ -50,7 +50,7 @@ public class Computador {
     }
 
     // Tentar atirar em coordenadas aleatórias até que o tiro seja válido
-    public Boolean shootComputer(Tabuleiro tabUser) {
+    public Boolean atacarUsuario(Tabuleiro tabUser) {
         boolean isValidPoint = false;
         int row = 0,col = 0;
 

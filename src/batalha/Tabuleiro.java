@@ -44,12 +44,12 @@ public class Tabuleiro {
 
         // Navio do usuário
         if (rowColInseridos.equals("| n ") || rowColInseridos.equals("| n |")) {
-           this.addShoot(row, col, "X");
+           this.addShoot(row, col, "*");
            return true;
         }
         // Navio do computador
         else if (rowColInseridos.equals("| N ") || rowColInseridos.equals("| N |")) {
-            this.addShoot(row, col, "*");
+            this.addShoot(row, col, "X");
             return true;
         }
         // Tiro na água

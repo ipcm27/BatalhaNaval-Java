@@ -25,7 +25,7 @@ public class Tabuleiro {
 
     public Boolean notRepeatAttackAdversary(int row,int col){
         String rowColInseridos = this.getStringMatrix(row,col);
-        return !((rowColInseridos.equals("| X ") || rowColInseridos.equals("| X |")) && (rowColInseridos.equals("| * ") || rowColInseridos.equals("| * |")));
+        return !(notRepeatShootRight(row,col) && (rowColInseridos.equals("| * ") || rowColInseridos.equals("| * |")));
     }
 
     //FUNÇÃO ADICIONAR TIRO
@@ -44,12 +44,12 @@ public class Tabuleiro {
 
         // Navio do usuário
         if (rowColInseridos.equals("| n ") || rowColInseridos.equals("| n |")) {
-           this.addShoot(row, col, "*");
+           this.addShoot(row, col, "X");
            return true;
         }
         // Navio do computador
         else if (rowColInseridos.equals("| N ") || rowColInseridos.equals("| N |")) {
-            this.addShoot(row, col, "X");
+            this.addShoot(row, col, "*");
             return true;
         }
         // Tiro na água

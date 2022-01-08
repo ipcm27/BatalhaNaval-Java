@@ -21,9 +21,15 @@ public class Jogo {
     }
 
     private static void jogar(Usuario user, Computador computer) {
+        int rodada = 1;
+
         while (true) {
             user.atacarComputador(computer.tabuleiroComputador);
             computer.atacarUsuario(user.tabuleiroUsuario);
+
+            rodada++;
+            System.out.printf(String.format("%n------------------ RODADA %s ------------------%n", rodada));
+
             if (user.getPoints() >= 10) {
                 System.out.printf("Você venceu!");
                 break;

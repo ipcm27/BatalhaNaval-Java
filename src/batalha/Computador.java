@@ -6,7 +6,7 @@ import java.util.Random;
 public class Computador {
 
     public Tabuleiro tabuleiroComputador;
-    private int points = 0;
+    private int points = 1;
 
     public int getPoints() {
         return points;
@@ -40,7 +40,7 @@ public class Computador {
     	
     	int i = 1;
 
-        while(i < 11){
+        while(i < 3){
         	 int row = getRandomNumber();
              int col = getRandomNumber();
              

@@ -24,10 +24,11 @@ public class Jogo {
         while (true) {
             user.atacarComputador(computer.tabuleiroComputador);
             computer.atacarUsuario(user.tabuleiroUsuario);
-            if (user.getPoints() >= 10) {
+            if (user.getPoints() == 2) {
+            	user.parabensVoceGanhou();
                 System.out.printf("Você venceu!");
                 break;
-            } else if (computer.getPoints() >= 10) {
+            } else if (computer.getPoints() == 2) {
                 System.out.printf("Você perdeu!");
                 break;
             }

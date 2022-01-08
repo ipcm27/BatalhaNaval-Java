@@ -7,7 +7,7 @@ public class Usuario {
 	
 	
 
-	public static int points;
+	public static int points = 1;
 	public Tabuleiro tabuleiroUsuario;
 	
 	public static int getPoints() {
@@ -120,7 +120,7 @@ public class Usuario {
 		tabuleiroUsuario.startMatrix();
 		
 		System.out.println("Insira a linha e a coluna que deseja colocar seus navios");
-		while(i < 11) {
+		while(i < 3) {
 
 			System.out.println("Adicione o " + i + " Navio");
 			String input = readCoordinates();
@@ -148,7 +148,7 @@ public class Usuario {
 	}
 	
 	
-	private void pontuarUser () {
+	private void pontuarUser() {
 		this.points++;
 	}
 	

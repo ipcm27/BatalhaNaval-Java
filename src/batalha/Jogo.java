@@ -25,7 +25,8 @@ public class Jogo {
 
         while (true) {
             user.atacarComputador(computer.tabuleiroComputador);
-            computer.atacarUsuario(user.tabuleiroUsuario);
+            //computer.atacarUsuario(user.tabuleiroUsuario);
+            setTimeout(computer, user.tabuleiroUsuario,3000);
 
             rodada++;
             System.out.printf(String.format("%n------------------ RODADA %s ------------------%n", rodada));
@@ -37,6 +38,15 @@ public class Jogo {
                 System.out.printf("Você perdeu!");
                 break;
             }
+        }
+    }
+
+    public static void setTimeout(Computador computador,Tabuleiro tab,int time){
+        try {
+            Thread.sleep(time);
+            computador.atacarUsuario(tab);
+        } catch (InterruptedException e) {
+            System.out.println(e);
         }
     }
 

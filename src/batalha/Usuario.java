@@ -182,12 +182,12 @@ public class Usuario {
 
 			// O acerto OU tiro na água também é marcado no tabuleiro do computador
 			if (acertou) {
-				tabComputador.addShoot(row, col,"X");
+				tabuleiroUsuario.addShoot(row, col,"X");
 				pontuarUser();
 				tabComputador.showMatrixComputador();
 				tabuleiroUsuario.showMatrix();
 			} else {
-				tabComputador.addShootWater(row, col);
+				tabuleiroUsuario.addShootWater(row, col);
 				tabComputador.showMatrixComputador();
 				tabuleiroUsuario.showMatrix();
 			}

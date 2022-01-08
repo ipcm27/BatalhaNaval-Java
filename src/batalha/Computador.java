@@ -68,10 +68,10 @@ public class Computador {
 
         // O acerto OU tiro na água também é marcado no tabuleiro do usuário
         if (acertou) {
-            tabUser.addShoot(row, col,"X");
+            tabuleiroComputador.addShoot(row, col,"X");
             pontuarComputer();
         } else {
-            tabUser.addShootWater(row, col);
+            tabuleiroComputador.addShootWater(row, col);
         }
 
         return acertou;

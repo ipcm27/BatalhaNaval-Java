@@ -184,11 +184,11 @@ public class Usuario {
 			if (acertou) {
 				tabComputador.addShoot(row, col,"X");
 				pontuarUser();
-				tabComputador.showMatrix();
+				tabComputador.showMatrixComputador();
 				tabuleiroUsuario.showMatrix();
 			} else {
 				tabComputador.addShootWater(row, col);
-				tabComputador.showMatrix();
+				tabComputador.showMatrixComputador();
 				tabuleiroUsuario.showMatrix();
 			}
 			return acertou;

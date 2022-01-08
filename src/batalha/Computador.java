@@ -40,7 +40,7 @@ public class Computador {
     	
     	int i = 1;
 
-        while(i < 3){
+        while(i < 11){
         	 int row = getRandomNumber();
              int col = getRandomNumber();
              

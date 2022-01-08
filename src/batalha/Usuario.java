@@ -120,7 +120,7 @@ public class Usuario {
 		tabuleiroUsuario.startMatrix();
 		
 		System.out.println("Insira a linha e a coluna que deseja colocar seus navios");
-		while(i < 3) {
+		while(i < 11) {
 
 			System.out.println("Adicione o " + i + " Navio");
 			String input = readCoordinates();
@@ -173,7 +173,7 @@ public class Usuario {
 
 		// Retornar se o tiro foi válido ou não
 		boolean tiroValido = !(jaAtirouAli || jaAcertouNavio);
-		if (!(tiroValido)) {
+		if ((tiroValido)) {
 			System.out.printf("Você já atirou nessa posição!");
 			return false;
 		} else {
@@ -184,8 +184,12 @@ public class Usuario {
 			if (acertou) {
 				tabComputador.addShoot(row, col,"X");
 				pontuarUser();
+				tabComputador.showMatrix();
+				tabuleiroUsuario.showMatrix();
 			} else {
 				tabComputador.addShootWater(row, col);
+				tabComputador.showMatrix();
+				tabuleiroUsuario.showMatrix();
 			}
 			return acertou;
 		}

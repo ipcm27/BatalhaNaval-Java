@@ -8,6 +8,10 @@ public class Computador {
     public Tabuleiro tabuleiroComputador;
     private int points = 0;
 
+    public int getPoints() {
+        return points;
+    }
+
     public Computador(Tabuleiro tab) {
         this.tabuleiroComputador = tab;
         tab.startMatrix();

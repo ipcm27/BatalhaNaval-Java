@@ -73,7 +73,7 @@ public class Computador {
             System.out.printf(String.format("O computador acertou! Você ainda tem %s navios%n", 10 - points));
         } else {
             tabuleiroComputador.addShootWater(row, col);
-            tabUser.addShootWater(row,col);//adicionado tiro na água na tabela do usuário
+            tabUser.showMatrix();//quando computador erra mostra na tela onde computador atirou
             System.out.printf("O computador errou.%n");
         }
 

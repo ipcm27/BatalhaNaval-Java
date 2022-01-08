@@ -23,6 +23,11 @@ public class Tabuleiro {
         }
     }
 
+    public Boolean notRepeatAttackAdversary(int row,int col){
+        String rowColInseridos = this.getStringMatrix(row,col);
+        return !((rowColInseridos.equals("| X ") || rowColInseridos.equals("| X |")) && (rowColInseridos.equals("| * ") || rowColInseridos.equals("| * |")));
+    }
+
     //FUNÇÃO ADICIONAR TIRO
     public void addShoot(int row,int col,String shoot){
         matrizTabuleiro[row][col] = (col == 10)? String.format("| %s |",shoot):String.format("| %s ",shoot);

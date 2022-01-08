@@ -186,10 +186,12 @@ public class Usuario {
 				pontuarUser();
 				tabComputador.showMatrixComputador();
 				tabuleiroUsuario.showMatrix();
+				System.out.printf(String.format("Você acertou um navio!! Faltam %s%n", 10 - points));
 			} else {
 				tabuleiroUsuario.addShootWater(row, col);
 				tabComputador.showMatrixComputador();
 				tabuleiroUsuario.showMatrix();
+				System.out.printf("Você errou.%n");
 			}
 			return acertou;
 		}

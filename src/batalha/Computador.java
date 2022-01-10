@@ -68,10 +68,13 @@ public class Computador {
 
         // O acerto OU tiro na água também é marcado no tabuleiro do usuário
         if (acertou) {
-            tabUser.addShoot(row, col,"X");
+            tabuleiroComputador.addShoot(row, col,"X");
             pontuarComputer();
+            System.out.printf(String.format("O computador acertou! Você ainda tem %s navios%n", 10 - points));
         } else {
-            tabUser.addShootWater(row, col);
+            tabuleiroComputador.addShootWater(row, col);
+            tabUser.showMatrix();//quando computador erra mostra na tela onde computador atirou
+            System.out.printf("O computador errou.%n");
         }
 
         return acertou;

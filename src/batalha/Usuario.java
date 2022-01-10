@@ -41,41 +41,6 @@ public class Usuario {
 	public Boolean validatePosition(int cord){
 		return (cord > 0 && cord < 11);
 	}
-	
-
-	// @Igor: fiz uma alteração no input para ler linha e coluna de uma vez só,
-	// então não estamos mais usando esses métodos! Pode apagar se quiser :)
-	/*
-	public int inserirLinha() {
-		Scanner scan = new Scanner(System.in);
-		boolean isValid = false;
-		int rowInt = 0;
-		
-		while(isValid == false) {
-		System.out.println("Insira a linha entre A e J");
-		String row = scan.next();
-		rowInt = changeAlpha(row);
-		isValid = validatePosition(rowInt);
-		
-		}
-		return rowInt;
-	}
-	
-	public int inserirColuna() {
-		Scanner scan = new Scanner(System.in);
-		boolean isValid = false;
-		int column =0;
-		
-		
-		while(isValid == false) {
-		
-		System.out.println("Insira a Coluna");
-		column = scan.nextInt() + 1;
-		isValid = validatePosition(column);
-		}
-		
-		return column;
-	} */
 		
 	private int[] parseCoordinates(String input) {
 		// Converte as coordenadas inseridas para um array de inteiros
@@ -182,14 +147,16 @@ public class Usuario {
 
 			// O acerto OU tiro na água também é marcado no tabuleiro do computador
 			if (acertou) {
-				tabComputador.addShoot(row, col,"X");
+				tabuleiroUsuario.addShoot(row, col,"*");//Usuario acertou adicionar *
 				pontuarUser();
 				tabComputador.showMatrixComputador();
 				tabuleiroUsuario.showMatrix();
+				System.out.printf(String.format("Você acertou um navio!! Faltam %s%n", 10 - points));
 			} else {
-				tabComputador.addShootWater(row, col);
+				tabuleiroUsuario.addShootWater(row, col);
 				tabComputador.showMatrixComputador();
 				tabuleiroUsuario.showMatrix();
+				System.out.printf("Você errou.%n");
 			}
 			return acertou;
 		}

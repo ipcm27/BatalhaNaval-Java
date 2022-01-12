@@ -1,6 +1,11 @@
 package batalha;
 
 public class Jogo {
+	
+	 public static void imprimirInstruções() {
+	    	String instruções= "\n INSTRUÇÕES \n Navio do Usuario = n \n Navio do Computador = N \n Navio Atingido do usuario =X \n Navio Atingido do computador = * \n Tiros na agua (computador e usuario) = - \n ";
+	    	System.out.println(instruções);
+	    }
 
     public static void main(String[] args) {
 
@@ -22,23 +27,25 @@ public class Jogo {
 
     private static void jogar(Usuario user, Computador computer) {
         int rodada = 1;
+        imprimirInstruções();
 
         while (true) {
             user.atacarComputador(computer.tabuleiroComputador);
 
             computer.atacarUsuario(user.tabuleiroUsuario);
-            if (user.getPoints() == 2) {
-            	user.parabensVoceGanhou();
-
-            //computer.atacarUsuario(user.tabuleiroUsuario);
-            setTimeout(computer, user.tabuleiroUsuario,3000);
+            
+            // O settimeout tava deixando o jogo ruim pra testar
+            // setTimeout(computer, user.tabuleiroUsuario,1500);
+            
 
             rodada++;
             System.out.printf(String.format("%n------------------ RODADA %s ------------------%n", rodada));
 
-            if (user.getPoints() >= 10) {
+            if (user.getPoints() == 2) {
 
                 System.out.printf("Você venceu!");
+                user.parabensVoceGanhou();
+                
                 break;
             } else if (computer.getPoints() == 2) {
                 System.out.printf("Você perdeu!");
@@ -46,7 +53,7 @@ public class Jogo {
             }
         }
     }
-    }
+    
 
     public static void setTimeout(Computador computador,Tabuleiro tab,int time){
         try {

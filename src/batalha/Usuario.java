@@ -7,7 +7,7 @@ public class Usuario {
 	
 	
 
-	public static int points = 1;
+	public static int points = 0;
 	public Tabuleiro tabuleiroUsuario;
 	
 	public static int getPoints() {

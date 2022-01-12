@@ -6,7 +6,7 @@ import java.util.Random;
 public class Computador {
 
     public Tabuleiro tabuleiroComputador;
-    private int points = 1;
+    private int points = 0;
 
     public int getPoints() {
         return points;

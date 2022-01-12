@@ -41,6 +41,7 @@ public class Usuario {
 	public Boolean validatePosition(int cord){
 		return (cord > 0 && cord < 11);
 	}
+	
 		
 	private int[] parseCoordinates(String input) {
 		// Converte as coordenadas inseridas para um array de inteiros
@@ -117,7 +118,7 @@ public class Usuario {
 		this.points++;
 	}
 	
-	public boolean atacarComputador(Tabuleiro tabComputador) {
+	public boolean atacarComputador(Tabuleiro tabComputador, Usuario usuario) {
 		System.out.println("Insira a linha e a coluna para jogar a BOMBA");
 
 		// Receber linha e coluna a ser atacada
@@ -135,11 +136,16 @@ public class Usuario {
 		// Verificar se usuário já atirou ali
 		boolean jaAtirouAli = !tabComputador.notRepeatAttack(row, col);
 		boolean jaAcertouNavio = !tabComputador.notRepeatShootRight(row, col);
+		boolean isProprioNavio = usuario.compararPosicaoUsuarioNaoRepetida(row, col, usuario.tabuleiroUsuario);
 
+		boolean nãoEhtiroValido = !(jaAtirouAli || jaAcertouNavio || isProprioNavio);
+		
+		if (isProprioNavio) {System.out.printf("Você não pode atirar no seu próprio navio - perdeu a vez \n");}
+		if (nãoEhtiroValido) {System.out.printf("Você já atirou nessa posição!");}
+		
 		// Retornar se o tiro foi válido ou não
-		boolean tiroValido = !(jaAtirouAli || jaAcertouNavio);
-		if ((tiroValido)) {
-			System.out.printf("Você já atirou nessa posição!");
+		if (nãoEhtiroValido || isProprioNavio ) {
+			
 			return false;
 		} else {
 			// Verificar se o tiro acertou um navio

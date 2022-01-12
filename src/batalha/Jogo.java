@@ -27,10 +27,14 @@ public class Jogo {
 
     private static void jogar(Usuario user, Computador computer) {
         int rodada = 1;
+        boolean isJogadaCorreta = true;
         imprimirInstruções();
 
         while (true) {
-            user.atacarComputador(computer.tabuleiroComputador);
+        	
+        	 
+        	user.atacarComputador(computer.tabuleiroComputador, user);
+        	
 
             computer.atacarUsuario(user.tabuleiroUsuario);
             

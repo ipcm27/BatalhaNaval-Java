@@ -34,12 +34,12 @@ public class Jogo {
         	
         	 
         	user.atacarComputador(computer.tabuleiroComputador, user);
-        	
+            setTimeout(computer, user.tabuleiroUsuario,2500);
 
-            computer.atacarUsuario(user.tabuleiroUsuario);
+            //computer.atacarUsuario(user.tabuleiroUsuario);
             
             // O settimeout tava deixando o jogo ruim pra testar
-            // setTimeout(computer, user.tabuleiroUsuario,1500);
+
             
 
             rodada++;

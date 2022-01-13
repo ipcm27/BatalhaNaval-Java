@@ -155,12 +155,12 @@ public class Usuario {
 			if (acertou) {
 				tabuleiroUsuario.addShoot(row, col,"*");//Usuario acertou adicionar *
 				pontuarUser();
-				tabComputador.showMatrixComputador();
+//				tabComputador.showMatrixComputador();
 				tabuleiroUsuario.showMatrix();
 				System.out.printf(String.format("Você acertou um navio!! Faltam %s%n", 10 - points));
 			} else {
 				tabuleiroUsuario.addShootWater(row, col);
-				tabComputador.showMatrixComputador();
+//				tabComputador.showMatrixComputador();
 				tabuleiroUsuario.showMatrix();
 				System.out.printf("Você errou.%n");
 			}

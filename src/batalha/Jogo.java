@@ -21,7 +21,7 @@ public class Jogo {
         jogar(user, computer);
 
         tabUser.showMatrix();
-        tabComputer.showMatrixComputador();
+        //tabComputer.showMatrixComputador();
 
     }
 
@@ -45,13 +45,13 @@ public class Jogo {
             rodada++;
             System.out.printf(String.format("%n------------------ RODADA %s ------------------%n", rodada));
 
-            if (user.getPoints() == 2) {
+            if (user.getPoints() == 10) {
 
                 System.out.printf("Você venceu!");
                 user.parabensVoceGanhou();
                 
                 break;
-            } else if (computer.getPoints() == 2) {
+            } else if (computer.getPoints() == 10) {
                 System.out.printf("Você perdeu!");
                 break;
             }

@@ -25,7 +25,7 @@ public class Tabuleiro {
 
     public Boolean notRepeatAttackAdversary(int row,int col){
         String rowColInseridos = this.getStringMatrix(row,col);
-        return !(notRepeatShootRight(row,col) && (rowColInseridos.equals("| * ") || rowColInseridos.equals("| * |")));
+        return (notRepeatShootRight(row,col) || (rowColInseridos.equals("| * ") || rowColInseridos.equals("| * |")));
     }
 
     //FUNÇÃO ADICIONAR TIRO

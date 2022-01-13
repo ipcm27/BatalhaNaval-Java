@@ -40,7 +40,7 @@ public class Computador {
     	
     	int i = 1;
 
-        while(i < 3){
+        while(i < 11){
         	 int row = getRandomNumber();
              int col = getRandomNumber();
              
@@ -84,7 +84,7 @@ public class Computador {
     private boolean checkValidPoint(int row, int col) {
         if(shootYourselfComputer(row,col)){
             return false;
-        }else if(this.tabuleiroComputador.notRepeatShootRight(row,col)){
+        }else if(this.tabuleiroComputador.notRepeatAttackAdversary(row,col)) {
             return false;
         }else{
             return true;

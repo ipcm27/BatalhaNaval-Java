@@ -17,6 +17,15 @@ public class Jogo {
                     Usuario.shootUse,Tabuleiro.WATER));
     }
 
+    public static void setTimeout(Computador computador,Tabuleiro tab,int time){
+        try {
+            Thread.sleep(time);
+            computador.atacarUsuario(tab);
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+    }
+
     private static void jogar(Usuario user, Computador computer) {
         int rodada = 1;
         boolean isJogadaCorreta = true;
@@ -48,15 +57,6 @@ public class Jogo {
         }
     }
 
-
-    public static void setTimeout(Computador computador,Tabuleiro tab,int time){
-        try {
-            Thread.sleep(time);
-            computador.atacarUsuario(tab);
-        } catch (InterruptedException e) {
-            System.out.println(e);
-        }
-    }
 
     public static void main(String[] args) {
 

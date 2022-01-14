@@ -1,12 +1,14 @@
 package batalha;
 
-import java.util.List;
 import java.util.Random;
 
 public class Computador {
 
     public Tabuleiro tabuleiroComputador;
     private int points = 0;
+    private static String RED_COMP = "\u001B[31m";
+    private static String RESET_COMP = "\u001B[0m";
+    public static String shootComputer = RED_COMP+"\u274E"+ RESET_COMP;
 
     public int getPoints() {
         return points;
@@ -26,13 +28,17 @@ public class Computador {
     //FUNÇÃO RESPONSAVEL POR VALIDA POSIÇÕES DO COMPUTADOR
     private Boolean compararPosicaoComUsuarioEcomputador(int row,int col,Tabuleiro tabuleiro){
         String rowColInseridos  = tabuleiro.getStringMatrix(row,col);
-        return (rowColInseridos.equalsIgnoreCase("| n ") || rowColInseridos.equalsIgnoreCase("| n |"));
+        return (rowColInseridos.equalsIgnoreCase(
+                String.format("| %s "+Tabuleiro.RESET, Tabuleiro.NAVIO_USUARIO)) || rowColInseridos.equalsIgnoreCase(
+                        String.format("| %s |"+Tabuleiro.RESET,Tabuleiro.NAVIO_USUARIO)));
     }
 
     //FUNÇÃO VERIFICA SE COMPUTADOR ATIROU NELE MESMO
     private Boolean shootYourselfComputer(int row,int col){
         String rowColInseridos  = tabuleiroComputador.getStringMatrix(row,col);
-        return (rowColInseridos.equals("| N ") || rowColInseridos.equalsIgnoreCase("| N |"));
+        return (rowColInseridos.equals(
+                String.format("| %s "+Tabuleiro.RESET, Tabuleiro.NAVIO_COMPUTADOR)) || rowColInseridos.equalsIgnoreCase(
+                        String.format("| %s |"+Tabuleiro.RESET, Tabuleiro.NAVIO_COMPUTADOR)));
     }
 
     //FUNÇÃO GERA OS NAVIES INICIAIS PARA COMEÇA
@@ -40,7 +46,7 @@ public class Computador {
     	
     	int i = 1;
 
-        while(i < 11){
+        while(i < 3){
         	 int row = getRandomNumber();
              int col = getRandomNumber();
              
@@ -68,14 +74,14 @@ public class Computador {
 
         // O acerto OU tiro na água também é marcado no tabuleiro do usuário
         if (acertou) {
-            tabuleiroComputador.addShoot(row, col,"X");
+            tabuleiroComputador.addShoot(row, col,shootComputer);
             pontuarComputer();
             tabUser.showMatrix();
-            System.out.printf(String.format("O computador acertou! Você ainda tem %s navios%n", 10 - points));
+            System.out.printf(String.format(RED_COMP+"O computador acertou! Você ainda tem %s navios%n"+RESET_COMP, 10 - points));
         } else {
             tabuleiroComputador.addShootWater(row, col);
             tabUser.showMatrix();//quando computador erra mostra na tela onde computador atirou
-            System.out.printf("O computador errou.%n");
+            System.out.printf(RED_COMP+"O computador errou.%n"+RESET_COMP);
         }
 
         return acertou;

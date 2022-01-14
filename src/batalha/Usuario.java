@@ -9,6 +9,9 @@ public class Usuario {
 
 	public static int points = 0;
 	public Tabuleiro tabuleiroUsuario;
+	private static final String RESET_USE = "\u001B[0m";
+	private static final String GREEN_USE = "\u001B[32m";
+	public static String shootUse = GREEN_USE+"\u2714"+RESET_USE;
 	
 	public static int getPoints() {
 		return points;
@@ -33,7 +36,9 @@ public class Usuario {
 	//ESSA FUNÇÃO EVITA QUE USUARIO REPITA MESMO LANCE
 	public Boolean compararPosicaoUsuarioNaoRepetida(int row,int col,Tabuleiro tabuleiro){
 		String rowColInseridos  = tabuleiro.getStringMatrix(row,col);
-		return (rowColInseridos.equals("| n ") || rowColInseridos.equals("| n |"));
+		return (rowColInseridos.equals(
+				String.format("| %s "+Tabuleiro.RESET,Tabuleiro.NAVIO_USUARIO )) || rowColInseridos.equals(
+				String.format("| %s |"+Tabuleiro.RESET,Tabuleiro.NAVIO_USUARIO)));
 	}
 
 
@@ -76,7 +81,7 @@ public class Usuario {
 	}
 
 	private String readCoordinates() {
-		System.out.println("Insira a posição (entre A0 e J9):");
+		System.out.println(GREEN_USE+"Insira a posição (entre A0 e J9):"+RESET_USE);
 		Scanner scan = new Scanner(System.in);
 		return scan.next();
 	}
@@ -85,17 +90,17 @@ public class Usuario {
 		int i = 1;
 		tabuleiroUsuario.startMatrix();
 		
-		System.out.println("Insira a linha e a coluna que deseja colocar seus navios");
-		while(i < 11) {
+		System.out.println(GREEN_USE+"Insira a linha e a coluna que deseja colocar seus navios"+RESET_USE);
+		while(i < 3) {
 
-			System.out.println("Adicione o " + i + " Navio");
+			System.out.println(GREEN_USE+"Adicione o " + i + " Navio"+RESET_USE);
 			String input = readCoordinates();
 
 			int[] coordenadas;
 			try {
 				coordenadas = parseCoordinates(input);
 			} catch (Exception e) {
-				System.out.println("Posição inválida!");
+				System.out.println(GREEN_USE+"Posição inválida!"+RESET_USE);
 				continue;
 			}
 			int LINHA = coordenadas[0];
@@ -106,7 +111,7 @@ public class Usuario {
 				tabuleiroUsuario.showMatrix(); //ACHEI QUE FICA MELHOR MOSTRANDO CADA INSERÇÃO
 				i++;
 			}else{
-				System.out.println("POSIÇÃO REPETIDA DIGITE NOVAMENTE");
+				System.out.println(GREEN_USE+"POSIÇÃO REPETIDA DIGITE NOVAMENTE"+RESET_USE);
 			}
 
 		};
@@ -119,7 +124,7 @@ public class Usuario {
 	}
 	
 	public boolean atacarComputador(Tabuleiro tabComputador, Usuario usuario) {
-		System.out.println("Insira a linha e a coluna para jogar a BOMBA");
+		System.out.println(GREEN_USE+"Insira a linha e a coluna para jogar a BOMBA"+RESET_USE);
 
 		// Receber linha e coluna a ser atacada
 		String input = readCoordinates();
@@ -127,7 +132,7 @@ public class Usuario {
 		try {
 			coordenadas = parseCoordinates(input);
 		} catch (Exception e) {
-			System.out.println("Posição inválida!");
+			System.out.println(GREEN_USE+"Posição inválida!"+RESET_USE);
 			return false;
 		}
 		int row = coordenadas[0];
@@ -140,8 +145,8 @@ public class Usuario {
 
 		boolean nãoEhtiroValido = !(jaAtirouAli || jaAcertouNavio || isProprioNavio);
 		
-		if (isProprioNavio) {System.out.printf("Você não pode atirar no seu próprio navio - perdeu a vez \n");}
-		if (nãoEhtiroValido) {System.out.printf("Você já atirou nessa posição!");}
+		if (isProprioNavio) {System.out.printf(GREEN_USE+"Você não pode atirar no seu próprio navio - perdeu a vez \n"+RESET_USE);}
+		if (nãoEhtiroValido) {System.out.printf(GREEN_USE+"Você já atirou nessa posição!"+RESET_USE);}
 		
 		// Retornar se o tiro foi válido ou não
 		if (nãoEhtiroValido || isProprioNavio ) {
@@ -153,36 +158,36 @@ public class Usuario {
 
 			// O acerto OU tiro na água também é marcado no tabuleiro do computador
 			if (acertou) {
-				tabuleiroUsuario.addShoot(row, col,"*");//Usuario acertou adicionar *
+				tabuleiroUsuario.addShoot(row, col,shootUse);//Usuario acertou adicionar *
 				pontuarUser();
 //				tabComputador.showMatrixComputador();
 				tabuleiroUsuario.showMatrix();
-				System.out.printf(String.format("Você acertou um navio!! Faltam %s%n", 10 - points));
+				System.out.printf(String.format(GREEN_USE+"Você acertou um navio!! Faltam %s%n"+RESET_USE, 10 - points));
 			} else {
 				tabuleiroUsuario.addShootWater(row, col);
 //				tabComputador.showMatrixComputador();
 				tabuleiroUsuario.showMatrix();
-				System.out.printf("Você errou.%n");
+				System.out.printf(GREEN_USE+"Você errou.%n"+RESET_USE);
 			}
 			return acertou;
 		}
 	}
-	
+
 	public void parabensVoceGanhou() {
-		System.out.println("     ___");
-		System.out.println("    \\_/");
-		System.out.println("      |._");
-		System.out.println("      |'.\"-._.-\"\"--.-\"-.__.-'/");
-		System.out.println("      |  \\       .-.        (");
-		System.out.println("      |   |     (@.@)        )");
-		System.out.println("      |   |   '=.|m|.='     /");
-		System.out.println(" BIK  |  /    .='`\"``=.    /");
-		System.out.println("      |.'                 (");
-		System.out.println("      |.-\"-.__.-\"\"-.__.-\"-.)");
-		System.out.println("      |");
-		System.out.println("      |");
-		System.out.println("      | ");
-		System.out.println("        ");
-		System.out.println("-=[ Parabéns, você é um pirata de verdade ]=-   ");
+		System.out.println(GREEN_USE+"     ___"+RESET_USE);
+		System.out.println(GREEN_USE+"    \\_/"+RESET_USE);
+		System.out.println(GREEN_USE+"      |._"+RESET_USE);
+		System.out.println(GREEN_USE+"      |'.\"-._.-\"\"--.-\"-.__.-'/"+RESET_USE);
+		System.out.println(GREEN_USE+"      |  \\       .-.        ("+RESET_USE);
+		System.out.println(GREEN_USE+"      |   |     (@.@)        )"+RESET_USE);
+		System.out.println(GREEN_USE+"      |   |   '=.|m|.='     /"+RESET_USE);
+		System.out.println(GREEN_USE+" BIK  |  /    .='`\"``=.    /"+RESET_USE);
+		System.out.println(GREEN_USE+"      |.'                 ("+RESET_USE);
+		System.out.println(GREEN_USE+"      |.-\"-.__.-\"\"-.__.-\"-.)"+RESET_USE);
+		System.out.println(GREEN_USE+"      |"+RESET_USE);
+		System.out.println(GREEN_USE+"      |"+RESET_USE);
+		System.out.println(GREEN_USE+"      | "+RESET_USE);
+		System.out.println(GREEN_USE+"        "+RESET_USE);
+		System.out.println(GREEN_USE+"-=[ Parabéns, você é um pirata de verdade ]=-   "+RESET_USE);
 	}	
 }

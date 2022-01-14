@@ -1,10 +1,20 @@
 package batalha;
 
 public class Jogo {
-	
-	 public static void imprimirInstruções() {
-	    	String instruções= "\n INSTRUÇÕES \n Navio do Usuario = n \n Navio do Computador = N \n Navio Atingido do usuario =X \n Navio Atingido do computador = * \n Tiros na agua (computador e usuario) = - \n ";
-	    	System.out.println(instruções);
+    static final String GREEN = "\u001B[32m";
+    static final String RED =  "\u001B[31m";
+    private static final String RESET = "\u001B[0m";
+
+
+    public static void imprimirInstruções() {
+	    	String instruções= "\n INSTRUÇÕES \n Navio do Usuario = %s " +
+                    "\n Navio do Computador = %s " +
+                    "\n Navio Atingido do usuario = %s " +
+                    "\n Navio Atingido do computador = %s " +
+                    "\n Tiros na agua (computador e usuario) = %s \n ";
+	    	System.out.println(String.format(instruções,Tabuleiro.NAVIO_USUARIO,
+                    Tabuleiro.NAVIO_COMPUTADOR,Computador.shootComputer,
+                    Usuario.shootUse,Tabuleiro.WATER));
 	    }
 
     public static void main(String[] args) {
@@ -34,12 +44,11 @@ public class Jogo {
         	
         	 
         	user.atacarComputador(computer.tabuleiroComputador, user);
-            setTimeout(computer, user.tabuleiroUsuario,2500);
 
-            //computer.atacarUsuario(user.tabuleiroUsuario);
+            computer.atacarUsuario(user.tabuleiroUsuario);
             
             // O settimeout tava deixando o jogo ruim pra testar
-
+            // setTimeout(computer, user.tabuleiroUsuario,2500);
             
 
             rodada++;
@@ -47,12 +56,12 @@ public class Jogo {
 
             if (user.getPoints() == 10) {
 
-                System.out.printf("Você venceu!");
+                System.out.printf(GREEN+"Você venceu!"+RESET);
                 user.parabensVoceGanhou();
                 
                 break;
             } else if (computer.getPoints() == 10) {
-                System.out.printf("Você perdeu!");
+                System.out.printf(RED+"Você perdeu!"+RESET);
                 break;
             }
         }

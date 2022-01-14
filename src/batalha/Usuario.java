@@ -91,7 +91,7 @@ public class Usuario {
 		tabuleiroUsuario.startMatrix();
 		
 		System.out.println(GREEN_USE+"Insira a linha e a coluna que deseja colocar seus navios"+RESET_USE);
-		while(i < 3) {
+		while(i < 11) {
 
 			System.out.println(GREEN_USE+"Adicione o " + i + " Navio"+RESET_USE);
 			String input = readCoordinates();

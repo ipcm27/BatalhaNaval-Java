@@ -15,7 +15,48 @@ public class Jogo {
 	    	System.out.println(String.format(instruções,Tabuleiro.NAVIO_USUARIO,
                     Tabuleiro.NAVIO_COMPUTADOR,Computador.shootComputer,
                     Usuario.shootUse,Tabuleiro.WATER));
-	    }
+    }
+
+    private static void jogar(Usuario user, Computador computer) {
+        int rodada = 1;
+        boolean isJogadaCorreta = true;
+        imprimirInstruções();
+
+        while (true) {
+
+            user.atacarComputador(computer.tabuleiroComputador, user);
+            setTimeout(computer, user.tabuleiroUsuario,2500);
+
+
+            // O settimeout tava deixando o jogo ruim pra testar
+            //computer.atacarUsuario(user.tabuleiroUsuario);
+
+
+            rodada++;
+            System.out.printf(String.format("%n------------------ RODADA %s ------------------%n", rodada));
+
+            if (user.getPoints() == 10) {
+
+                System.out.printf(GREEN+"Você venceu!"+RESET);
+                user.parabensVoceGanhou();
+
+                break;
+            } else if (computer.getPoints() == 10) {
+                System.out.printf(RED+"Você perdeu!"+RESET);
+                break;
+            }
+        }
+    }
+
+
+    public static void setTimeout(Computador computador,Tabuleiro tab,int time){
+        try {
+            Thread.sleep(time);
+            computador.atacarUsuario(tab);
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+    }
 
     public static void main(String[] args) {
 
@@ -35,45 +76,6 @@ public class Jogo {
 
     }
 
-    private static void jogar(Usuario user, Computador computer) {
-        int rodada = 1;
-        boolean isJogadaCorreta = true;
-        imprimirInstruções();
 
-        while (true) {
-
-        	user.atacarComputador(computer.tabuleiroComputador, user);
-            setTimeout(computer, user.tabuleiroUsuario,2500);
-
-            
-            // O settimeout tava deixando o jogo ruim pra testar
-            //computer.atacarUsuario(user.tabuleiroUsuario);
-            
-
-            rodada++;
-            System.out.printf(String.format("%n------------------ RODADA %s ------------------%n", rodada));
-
-            if (user.getPoints() == 10) {
-
-                System.out.printf(GREEN+"Você venceu!"+RESET);
-                user.parabensVoceGanhou();
-                
-                break;
-            } else if (computer.getPoints() == 10) {
-                System.out.printf(RED+"Você perdeu!"+RESET);
-                break;
-            }
-        }
-    }
-    
-
-    public static void setTimeout(Computador computador,Tabuleiro tab,int time){
-        try {
-            Thread.sleep(time);
-            computador.atacarUsuario(tab);
-        } catch (InterruptedException e) {
-            System.out.println(e);
-        }
-    }
 
 }

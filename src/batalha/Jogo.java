@@ -6,7 +6,7 @@ public class Jogo {
     private static final String RESET = "\u001B[0m";
 
 
-    public static void imprimirInstruções() {
+    public static void imprimirInstrucoes() {
 	    	String instruções= "\n INSTRUÇÕES \n Navio do Usuario = %s " +
                     "\n Navio do Computador = %s " +
                     "\n Navio Atingido do usuario = %s " +
@@ -29,7 +29,7 @@ public class Jogo {
     private static void jogar(Usuario user, Computador computer) {
         int rodada = 1;
         boolean isJogadaCorreta = true;
-        imprimirInstruções();
+        imprimirInstrucoes();
 
         while (true) {
 

@@ -29,16 +29,16 @@ public class Computador {
     private Boolean compararPosicaoComUsuarioEcomputador(int row,int col,Tabuleiro tabuleiro){
         String rowColInseridos  = tabuleiro.getStringMatrix(row,col);
         return (rowColInseridos.equalsIgnoreCase(
-                String.format("| %s "+Tabuleiro.RESET, Tabuleiro.NAVIO_USUARIO)) || rowColInseridos.equalsIgnoreCase(
-                        String.format("| %s |"+Tabuleiro.RESET,Tabuleiro.NAVIO_USUARIO)));
+                String.format("| %s ", Tabuleiro.NAVIO_USUARIO)) || rowColInseridos.equalsIgnoreCase(
+                        String.format("| %s |",Tabuleiro.NAVIO_USUARIO)));
     }
 
     //FUNÇÃO VERIFICA SE COMPUTADOR ATIROU NELE MESMO
     private Boolean shootYourselfComputer(int row,int col){
         String rowColInseridos  = tabuleiroComputador.getStringMatrix(row,col);
         return (rowColInseridos.equals(
-                String.format("| %s "+Tabuleiro.RESET, Tabuleiro.NAVIO_COMPUTADOR)) || rowColInseridos.equalsIgnoreCase(
-                        String.format("| %s |"+Tabuleiro.RESET, Tabuleiro.NAVIO_COMPUTADOR)));
+                String.format("| %s ", Tabuleiro.NAVIO_COMPUTADOR)) || rowColInseridos.equalsIgnoreCase(
+                        String.format("| %s |", Tabuleiro.NAVIO_COMPUTADOR)));
     }
 
     //FUNÇÃO GERA OS NAVIES INICIAIS PARA COMEÇA
@@ -56,7 +56,7 @@ public class Computador {
              }
             
         }
-        tabuleiroComputador.showMatrixComputador();
+        //tabuleiroComputador.showMatrixComputador();
     }
 
     // Tentar atirar em coordenadas aleatórias até que o tiro seja válido

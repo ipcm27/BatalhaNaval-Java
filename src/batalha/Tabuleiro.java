@@ -34,8 +34,8 @@ public class Tabuleiro {
     public Boolean notRepeatAttackAdversary(int row,int col){
         String rowColInseridos = this.getStringMatrix(row,col);
         return (notRepeatShootRight(row,col) || (rowColInseridos.equals(
-                String.format("| %s "+RESET,Usuario.shootUse)) || rowColInseridos.equals(
-                        String.format("| %s |"+RESET, Usuario.shootUse))));
+                String.format("| %s ",Usuario.shootUse)) || rowColInseridos.equals(
+                        String.format("| %s |", Usuario.shootUse))));
     }
 
     //FUNÇÃO ADICIONAR TIRO
@@ -54,15 +54,15 @@ public class Tabuleiro {
         String rowColInseridos = this.getStringMatrix(row, col);
 
         // Navio do usuário
-        if (rowColInseridos.equals(String.format("| %s "+RESET, NAVIO_USUARIO)) || rowColInseridos.equals(
-                String.format("| %s |"+RESET, NAVIO_USUARIO))) {
+        if (rowColInseridos.equals(String.format("| %s ", NAVIO_USUARIO)) || rowColInseridos.equals(
+                String.format("| %s |", NAVIO_USUARIO))) {
            this.addShoot(row, col, Computador.shootComputer);
            return true;
         }
         // Navio do computador
         else if (rowColInseridos.equals(
-                String.format("| %s "+RESET,NAVIO_COMPUTADOR )) || rowColInseridos.equals(
-                String.format("| %s |"+RESET, NAVIO_COMPUTADOR))) {
+                String.format("| %s ",NAVIO_COMPUTADOR )) || rowColInseridos.equals(
+                String.format("| %s |", NAVIO_COMPUTADOR))) {
             this.addShoot(row, col, Usuario.shootUse);
             return true;
         }
@@ -138,10 +138,10 @@ public class Tabuleiro {
 
     //FUNÇÃO ADICIONAR NAVIO
     public void addShipMatrixUser(int row,int col){
-        matrizTabuleiro[row][col] = (col == 10)? String.format("| %s |"+RESET, NAVIO_USUARIO):String.format("| %s "+RESET,NAVIO_USUARIO);
+        matrizTabuleiro[row][col] = (col == 10)? String.format("| %s |", NAVIO_USUARIO):String.format("| %s ",NAVIO_USUARIO);
     }
 
     public void addShipMatrixComputer(int row,int col){
-        matrizTabuleiro[row][col] = (col == 10)? String.format("| %s |"+RESET, NAVIO_COMPUTADOR):String.format("| %s "+RESET,NAVIO_COMPUTADOR);
+        matrizTabuleiro[row][col] = (col == 10)? String.format("| %s |", NAVIO_COMPUTADOR):String.format("| %s ",NAVIO_COMPUTADOR);
     }
 }

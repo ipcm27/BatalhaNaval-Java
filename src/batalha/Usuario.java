@@ -113,7 +113,6 @@ public class Usuario {
 
 	}
 	
-	
 	private void pontuarUser() {
 		this.points++;
 	}
